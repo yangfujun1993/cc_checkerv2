@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --panther-gold: #FFD700;
+  --panther-yellow: #FFEB3B;
+  --panther-black: #000000;
+  --panther-dark: #1a1a1a;
+  --panther-darker: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  color: var(--panther-gold);
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--panther-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--panther-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--panther-yellow);
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.matrix-character {
+  color: var(--panther-gold);
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: matrix-fall 3s linear infinite;
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Holographic Effects */
+.hologram {
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  background-size: 200% 200%;
+  animation: hologram-sweep 3s ease-in-out infinite;
+}
+
+@keyframes hologram-sweep {
+  0%, 100% {
+    background-position: -200% -200%;
+  }
+  50% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Energy Field */
+.energy-field {
+  position: relative;
+  overflow: hidden;
+}
+
+.energy-field::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  animation: energy-sweep 2s ease-in-out infinite;
+}
+
+@keyframes energy-sweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Quantum Particles */
+.quantum-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--panther-gold);
+  border-radius: 50%;
+  animation: quantum-float 4s ease-in-out infinite;
+}
+
+@keyframes quantum-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* Portal Effect */
+.portal {
+  position: relative;
+  overflow: hidden;
+}
+
+.portal::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--panther-gold) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: portal-expand 4s ease-in-out infinite;
+}
+
+@keyframes portal-expand {
+  0%, 100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 200px;
+    height: 200px;
+    opacity: 0.3;
+  }
+}
+
+/* Stellar Navigation */
+.stellar-nav {
+  position: relative;
+}
+
+.stellar-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  background-size: 400% 400%;
+  animation: stellar-pulse 6s ease-in-out infinite;
+}
+
+@keyframes stellar-pulse {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Cosmic Text */
+.cosmic-text {
+  background: linear-gradient(45deg, var(--panther-gold), var(--panther-yellow), var(--panther-gold));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cosmic-shift 3s ease-in-out infinite;
+}
+
+@keyframes cosmic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Interstellar Background */
+.interstellar-bg {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 235, 59, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  animation: interstellar-drift 20s ease-in-out infinite;
+}
+
+@keyframes interstellar-drift {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Multiverse Container */
+.multiverse-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.multiverse-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, var(--panther-gold), transparent, var(--panther-yellow), transparent);
+  animation: multiverse-rotate 10s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes multiverse-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Quantum Glow */
+.quantum-glow {
+  box-shadow: 
+    0 0 5px var(--panther-gold),
+    0 0 10px var(--panther-gold),
+    0 0 15px var(--panther-gold),
+    0 0 20px var(--panther-gold);
+  animation: quantum-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes quantum-pulse {
+  0% {
+    box-shadow: 
+      0 0 5px var(--panther-gold),
+      0 0 10px var(--panther-gold),
+      0 0 15px var(--panther-gold),
+      0 0 20px var(--panther-gold);
+  }
+  100% {
+    box-shadow: 
+      0 0 10px var(--panther-gold),
+      0 0 20px var(--panther-gold),
+      0 0 30px var(--panther-gold),
+      0 0 40px var(--panther-gold);
+  }
+}
+
+/* Stellar Button */
+.stellar-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, var(--panther-black), var(--panther-dark));
+  border: 2px solid var(--panther-gold);
+  color: var(--panther-gold);
+  transition: all 0.3s ease;
+}
+
+.stellar-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.stellar-button:hover::before {
+  left: 100%;
+}
+
+.stellar-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Cosmic Input */
+.cosmic-input {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--panther-gold);
+  color: var(--panther-gold);
+  transition: all 0.3s ease;
+}
+
+.cosmic-input:focus {
+  outline: none;
+  border-color: var(--panther-yellow);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Interstellar Card */
+.interstellar-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
+  border: 1px solid var(--panther-gold);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.interstellar-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+/* Quantum Loading */
+.quantum-loading {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.quantum-loading::before,
+.quantum-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: var(--panther-gold);
+  border-radius: 50%;
+  animation: quantum-spin 1s linear infinite;
+}
+
+.quantum-loading::after {
+  animation: quantum-spin 1s linear infinite reverse;
+  animation-delay: 0.5s;
+}
+
+@keyframes quantum-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Stellar Progress */
+.stellar-progress {
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--panther-gold);
+}
+
+.stellar-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--panther-gold), var(--panther-yellow));
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.stellar-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: stellar-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes stellar-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Cosmic Notification */
+.cosmic-notification {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+  border: 2px solid var(--panther-gold);
+  backdrop-filter: blur(15px);
+  animation: cosmic-slide-in 0.5s ease-out;
+}
+
+@keyframes cosmic-slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Interstellar Modal */
+.interstellar-modal {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(26, 26, 26, 0.98));
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--panther-gold);
+  animation: interstellar-fade-in 0.3s ease-out;
+}
+
+@keyframes interstellar-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Quantum Table */
+.quantum-table {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--panther-gold);
+}
+
+.quantum-table th {
+  background: linear-gradient(45deg, var(--panther-black), var(--panther-dark));
+  color: var(--panther-gold);
+  border-bottom: 2px solid var(--panther-gold);
+}
+
+.quantum-table td {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.quantum-table tr:hover td {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Stellar Code Block */
+.stellar-code {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
+  border: 1px solid var(--panther-gold);
+  font-family: 'Courier New', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.stellar-code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--panther-gold), var(--panther-yellow), var(--panther-gold));
+  animation: stellar-scan 3s ease-in-out infinite;
+}
+
+@keyframes stellar-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Cosmic Grid */
+.cosmic-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Interstellar Flex */
+.interstellar-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Quantum Container */
+.quantum-container {
+  position: relative;
+  min-height: 100vh;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 235, 59, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+}
+
+/* Stellar Section */
+.stellar-section {
+  position: relative;
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+}
+
+.stellar-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--panther-gold), transparent);
+}
+
+/* Cosmic Header */
+.cosmic-header {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--panther-gold);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Interstellar Footer */
+.interstellar-footer {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
+  border-top: 2px solid var(--panther-gold);
+  margin-top: auto;
+}
+
+/* Quantum Responsive */
+@media (max-width: 768px) {
+  .cosmic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .interstellar-flex {
+    flex-direction: column;
+  }
+  
+  .stellar-section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Stellar Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Cosmic Focus */
+.cosmic-focus:focus {
+  outline: 2px solid var(--panther-gold);
+  outline-offset: 2px;
+}
+
+/* Interstellar Selection */
+::selection {
+  background: var(--panther-gold);
+  color: var(--panther-black);
+}
+
+/* Quantum Print */
+@media print {
+  .quantum-container {
+    background: white;
+    color: black;
+  }
+  
+  .stellar-button,
+  .cosmic-input,
+  .interstellar-card {
+    border: 1px solid black;
+    background: white;
+    color: black;
+  }
+} 
